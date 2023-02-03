@@ -88,8 +88,9 @@ function makeImageZoomer(src, description) {
   elem.innerHTML = `
       <figure class="imageZoomerBox imageZoomerBox__loading" data-element="imageZoomerBox">
         <i class="fa fa-spinner imageZoomerLoading animation" aria-hidden="true"></i>
-        <div class="imageZoomerCover" data-element="imageZoomerCover">
         <i class="fa fa-times imageZoomerClose" aria-hidden="true" data-element="imageZoomerClose"></i>
+        <div class="imageZoomerCover" data-element="imageZoomerCover">
+        
           <img class="imageZoomerImg" data-element="imageZoomerImg" src="${src}">
           ${description ? figcaption : ''}
         </div>

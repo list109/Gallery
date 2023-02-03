@@ -150,12 +150,13 @@ p > figure {
   position: absolute;
   font-size: 30px !important;
   z-index: 3000;
-  right: -37px;
-  top: 0;
+  right: 3vw;
+  top: 3vw;
   cursor: pointer;
+  padding: 15px;
 }
 
-.imageZoomerBox__loading .imageZoomerClose,
+.imageZoomerBox.imageZoomerBox__showing .imageZoomerBox__loading .imageZoomerClose,
 .imageZoomerBox__error .imageZoomerClose {
   right: 50%;
   transform: translateX(50%);
@@ -294,10 +295,28 @@ p > figure {
     flex-basis: 70vh;
     min-height: 70vh;
     margin-top: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .imageZoomerList li {
     width: 100px;
     height: 67px;
+  }
+  .imageZoomerImg {
+    max-width: 88vw;
+  }
+}
+@media (max-width: 992px) and (orientation: landscape) {
+  .imageZoomerCover {
+    display: initial;
+  }
+}
+@media (max-width: 992px) and (orientation: portrait) {
+  .imageZoomerClose {
+    right: 3vw;
+    top: 3vw;
   }
 }
 @media (max-width: 768px) {
@@ -308,7 +327,16 @@ p > figure {
   }
   .imageZoomerImg {
     max-height: 70vh;
-    max-width: 90vw;
+    max-width: 88vw;
+  }
+  .imageZoomerArrow__right {
+    right: 2%;
+  }
+  .imageZoomerArrow__left {
+    left: 2%;
+  }
+  .imageZoomerList li:not(:first-of-type) {
+    margin-left: 1px;
   }
 }
 
@@ -327,7 +355,7 @@ p > figure {
     height: 20px;
   }
   .imageZoomerTape {
-    width: 95vw;
+    width: 80vw;
     padding: 0;
   }
   .imageZoomerBox {
@@ -341,17 +369,14 @@ p > figure {
   .imageZoomerBox__error .imageZoomerDesc {
     font-size: 16px;
   }
-  .imageZoomerClose {
-    right: 0px;
-    top: -36px;
-  }
 }
 @media (max-width: 640px) and (orientation: landscape) {
   .imageZoomerClose {
-    top: 0;
-    right: -30px;
+    top: 1vw;
+    right: 1vw;
   }
 }
+
 @media (max-height: 400px) {
   .imageZoomerTape {
     margin-top: 30px;
