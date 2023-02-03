@@ -18,7 +18,10 @@
     "url": "https://github.com/list109/Gallery-carousel/issues"
   },
   "homepage": "https://github.com/list109/Gallery-carousel#readme",
-  "dependencies": {
-    "gh-pages": "^5.0.0"
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "css-minify": "^2.0.0",
+    "html-minifier-terser": "^7.1.0",
+    "uglify-js": "^3.17.4"
   }
 }
