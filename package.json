@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gh-pages": "gh-pages -d app -b gh-pages"
+    "deploy": "npm run build && gh-pages -d app -b gh-pages",
+    "build": "npm run clear && npm run copy-html && npm run copy-images && npm run minify-js && npm run minify-css",
+    "clear": "del-cli app/",
+    "minify-css": "csso -i src/main.css -o app/main.css",
+    "minify-js": "uglifyjs src/main.js --compress --mangle -o app/main.js",
+    "copy-images": "npx cpy-cli src/**/*.jpg app",
+    "copy-html": "npx cpy-cli src/**/index.html app"
   },
   "repository": {
     "type": "git",
@@ -19,9 +25,10 @@
   },
   "homepage": "https://github.com/list109/Gallery-carousel#readme",
   "devDependencies": {
+    "cpy-cli": "^4.2.0",
+    "csso-cli": "^4.0.1",
+    "del-cli": "^5.0.0",
     "gh-pages": "^5.0.0",
-    "css-minify": "^2.0.0",
-    "html-minifier-terser": "^7.1.0",
     "uglify-js": "^3.17.4"
   }
 }
